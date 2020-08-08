@@ -11,13 +11,29 @@ const getFiles = async ({ projectId, keyFilename, buckets }) => {
 	return allFiles
 }
 
+getSignedUrl = async (
+	bucket,
+	file,
+	{ projectId, keyFilename, expiration = Date.now() + 1000 * 60 * 60 }
+) => {
+	const storage = new Storage({ projectId, keyFilename })
+
+	const signedOptions = {
+		version: 'v4',
+		action: 'read',
+		expires: expiration,
+	}
+
+	return await storage.bucket(bucket).file(file).getSignedUrl(signedOptions)
+}
+
 exports.sourceNodes = async (
 	{ actions, createNodeId, createContentDigest },
 	config
 ) => {
 	const files = await getFiles(config)
 
-	files.forEach((file) => {
+	for (const file of files) {
 		const node = {
 			id: createNodeId(`GoogleStorage-${file.id}`),
 			internal: {
@@ -27,7 +43,8 @@ exports.sourceNodes = async (
 			metadata: file.metadata,
 			baseUrl: file.baseUrl,
 			name: file.name,
+			signedUrl: await getSignedUrl(file.bucket.name, file.name, config),
 		}
 		actions.createNode(node)
-	})
+	}
 }

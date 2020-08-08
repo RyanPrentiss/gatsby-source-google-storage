@@ -22,6 +22,7 @@ plugins: [
 			projectId: 'my-project-name',
 			keyFilename: path.resolve('my-service-account-credentials.json'),
 			buckets: ['bucket-name-1', 'bucket-name-2'],
+			expiration: Date.now() + 1000 * 60 * 60, // optional, default one-hour
 		},
 	},
 ]

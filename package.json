@@ -1,6 +1,6 @@
 {
   "name": "gatsby-source-google-storage",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Gatsby source plugin for Google Cloud Platform Storage",
   "main": "gatsby-node.js",
   "scripts": {
