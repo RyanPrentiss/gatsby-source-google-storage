@@ -19,9 +19,9 @@ exports.sourceNodes = async (
 
 	files.forEach((file) => {
 		const node = {
-			id: createNodeId(`GCPStorage-${file.id}`),
+			id: createNodeId(`GoogleStorage-${file.id}`),
 			internal: {
-				type: 'GCPStorage',
+				type: 'GoogleStorage',
 				contentDigest: createContentDigest(file),
 			},
 			metadata: file.metadata,
