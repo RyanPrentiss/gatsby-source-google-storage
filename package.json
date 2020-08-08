@@ -1,13 +1,30 @@
 {
-  "name": "gatsby-source-gcp-storage",
-  "version": "0.1.0",
-  "description": "",
+  "name": "gatsby-source-google-storage",
+  "version": "1.0.0",
+  "description": "Gatsby source plugin for Google Cloud Platform Storage",
   "main": "gatsby-node.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "gatsby-source-plugin",
+    "Google",
+    "Cloud",
+    "Platform",
+    "Storage",
+    "Gatsby",
+    "gatsby-plugin"
+  ],
   "author": "Ryan Prentiss",
   "license": "MIT",
+  "homepage": "https://github.com/RyanPrentiss/gatsby-source-google-storage",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RyanPrentiss/gatsby-source-google-storage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RyanPrentiss/gatsby-source-google-storage/issues"
+  },
   "dependencies": {
     "@google-cloud/storage": "^5.1.2"
   }
