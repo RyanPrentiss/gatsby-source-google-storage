@@ -11,7 +11,8 @@ Gatsby source plugin for Google Cloud Platform Storage
 1. Create a GCP Service Account with the role of _"Storage Object Admin"_.\
    [Console Link](https://console.cloud.google.com/apis/credentials)
 2. Add a new Key of type JSON. The file will automatically download to your system. Save to your Gatsby project root. **Do not add to your static folder.**
-3. Add plugin to _gatsby-config.js_
+3. Add plugin to _gatsby-config.js_\
+   The **signedUrl** `expiration` property of this plugin is based upon build time, not real-time access; therefore, always ensure to set your expiration at a time later than the your next planned build.
 
 ```js
 // In your gatsby-config.js
